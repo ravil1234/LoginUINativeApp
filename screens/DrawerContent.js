@@ -4,10 +4,12 @@ import {DrawerContentScrollView,DrawerItem} from '@react-navigation/drawer'
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import {useTheme,Text,Avatar,Title,Caption,Paragraph,Drawer,TouchableRipple,Switch} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+//import{ AuthContext } from '../components/context';
+
 export function DrawerContent(props)
 {
 const paperTheme = useTheme();
-
+//const { signOut, toggleTheme } = React.useContext(AuthContext);
    return(
 <View style={{flex: 1}}>
     <DrawerContentScrollView {...props}>
@@ -47,8 +49,8 @@ const paperTheme = useTheme();
                                 size={size}
                                 />
                             )}
-                            label="Home"
-                            onPress={() => {props.navigation.navigate('Home')}}
+                            label="General"
+                            onPress={() => {props.navigation.navigate('HomeDrawer')}}
                         />
                         <DrawerItem 
                             icon={({color, size}) => (
@@ -58,8 +60,8 @@ const paperTheme = useTheme();
                                 size={size}
                                 />
                             )}
-                            label="Profile"
-                            onPress={() => {props.navigation.navigate('Profile')}}
+                            label="Information"
+                            onPress={() => {props.navigation.navigate('InfoScreen')}}
                         />
                         
                         <DrawerItem 
@@ -82,7 +84,7 @@ const paperTheme = useTheme();
                                 />
                             )}
                             label="Settings"
-                            onPress={() => {props.navigation.navigate('SettingsScreen')}}
+                            onPress={() => {props.navigation.navigate('SettingScreen')}}
                         />
                         <DrawerItem 
                             icon={({color, size}) => (
@@ -97,7 +99,7 @@ const paperTheme = useTheme();
                         />
                     </Drawer.Section>
                     <Drawer.Section title="Preferences">
-                        <TouchableRipple onPress={() => {toggleTheme()}}>
+                        <TouchableRipple onPress={() => {}}>
                             <View style={styles.preference}>
                                 <Text>Dark Theme</Text>
                                 <View pointerEvents="none">

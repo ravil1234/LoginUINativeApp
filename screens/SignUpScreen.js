@@ -17,7 +17,6 @@ import * as Animatable from 'react-native-animatable';
 import {LinearGradient} from 'expo-linear-gradient';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import { useTheme } from '@react-navigation/native';
-
 const SignUpScreen =( {navigation}) =>{
     const {colors}=useTheme();
     const [data, setData] = React.useState({
@@ -189,7 +188,7 @@ const SignUpScreen =( {navigation}) =>{
             <View style={styles.button}>
                 <TouchableOpacity
                     style={styles.signIn}
-                    onPress={() => {}}
+                    onPress={() => navigation.navigate('RootTabScreen')}
                 >
                 <LinearGradient
                     colors={['#08d4c4', '#01ab9d']}

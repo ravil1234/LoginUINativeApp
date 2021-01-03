@@ -15,9 +15,13 @@ import * as Animatable from 'react-native-animatable';
 import {LinearGradient} from 'expo-linear-gradient';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import { useTheme } from '@react-navigation/native';
+import AsyncStorage from '@react-native-community/async-storage';
+//import { AuthContext } from '../components/context';
+//import Users from '../model/users';
 
 const SignInScreen =( {navigation}) =>{
 
+    //const { signIn } = React.useContext(AuthContext);
     const [data, setData] = React.useState({
         username: '',
         password: '',
@@ -87,9 +91,9 @@ const SignInScreen =( {navigation}) =>{
     }
     const loginHandle = (userName, password) => {
 
-        // const foundUser = Users.filter( item => {
+        //  const foundUser = Users.filter( item => {
         //     return userName == item.username && password == item.password;
-        // } );
+        //  } );
 
         if ( data.username.length == 0 || data.password.length == 0 ) {
             Alert.alert('Wrong Input!', 'Username or password field cannot be empty.', [
@@ -98,13 +102,13 @@ const SignInScreen =( {navigation}) =>{
             return;
         }
 
-        if ( foundUser.length == 0 ) {
-            Alert.alert('Invalid User!', 'Username or password is incorrect.', [
-                {text: 'Okay'}
-            ]);
-            return;
-        }
-        //signIn(foundUser);
+        // if ( foundUser.length == 0 ) {
+        //     Alert.alert('Invalid User!', 'Username or password is incorrect.', [
+        //         {text: 'Okay'}
+        //     ]);
+        //     return;
+        // }
+     //   signIn(foundUser);
     }
 
     const {colors}=useTheme();
@@ -203,7 +207,7 @@ const SignInScreen =( {navigation}) =>{
             <View style={styles.button}>
                 <TouchableOpacity
                     style={styles.signIn}
-                    onPress={() => {loginHandle( data.username, data.password )}}
+                    onPress={() => navigation.navigate('RootTabScreen')}
                 >
                 <LinearGradient
                     colors={['#08d4c4', '#01ab9d']}
